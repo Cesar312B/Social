@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}-Dashboard {% endblock %}
+
+{% block body %}
+{{ parent() }}
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 cursor">
+            {% for posts in pagination %}
+                <div class="bg-white rounded p-3 my-3"  onclick="window.location.href='{{ path('VerPosts',{id:posts.id}) }}'">
+                    <div class="d-flex bd-highlight">
+                        <div class="p-2 flex-grow-1 bd-highlight">
+                            <h3>{{posts.titulo}}</h3>
+                            <div class="my-3 bg-yellow"> <i class="fa fa-user"></i><strong> Creado por {{posts.nombre}}</strong></div>
+                            <div class=" bg-green"><i class="far fa-clock"></i> <strong>Fecha de publicación:{{posts.fecha_publicacion | date("m/d/Y")}}</strong></div>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <div class="align-self-center">
+                                <img class="rounded" src="{{ asset('uploads/fotos/'~posts.foto) }}" width="150px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                <div class="bg-white rounded p-3 my-3">
+                    <h4>Comentarios</h4>
+                       {% for comentario in comentarios %}
+                        <div class="bg-white my-2">
+                            <a href="{{ path('VerPosts',{id:comentario.id}) }}">{{ comentario.titulo }}</a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

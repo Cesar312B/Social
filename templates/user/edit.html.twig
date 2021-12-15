@@ -1,0 +1,20 @@
+{% extends 'login_base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+<div class="card-body p-5 bg-white rounded">
+<div style="float:right">
+    {{ include('user/_delete_form.html.twig') }}
+</div>
+    <h1>Editar Usuario</h1>
+
+
+    {{ include('user/_form.html.twig', {'button_label': 'Actualizar'}) }}
+    </br>
+
+  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <a href="{{ path('user_index') }}" class="btn btn-danger"> Regresar a la Lista </a>
+</div>
+</div>
+{% endblock %}

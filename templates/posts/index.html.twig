@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}-Mis Posts{% endblock %}
+
+{% block body %}
+{{ parent() }}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    
+{{ form_start(formulario) }}
+    {{ form_widget(formulario) }}
+    <button class="btn btn-info btn-lg btn-block">{{ button_label|default('Guardar') }}</button>
+{{ form_end(formulario) }}
+
+  
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>     
+   $('.dropdown-toggle').dropdown();
+                $('.custom-file-input').on('change', function(event) {
+                    var inputFile = event.currentTarget;
+                    $(inputFile).parent()
+                        .find('.custom-file-label')
+                        .html(inputFile.files[0].name);
+                });
+            </script>
+{% endblock %}
+
+
+

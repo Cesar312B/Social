@@ -1,0 +1,27 @@
+{% extends 'login_base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<div class="card-body p-5 bg-white rounded">
+    <h1>Registrarse</h1>
+  {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+ 
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+          {{ form_row(registrationForm.nombre) }}
+
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn btn-info btn-lg btn-block">Registrar</button>
+    {{ form_end(registrationForm) }}
+    </br>
+       <p>Ya tienes una cuenta <a href="{{ path('app_login') }}" class="link-info">Inicia session aqui</a></p>
+</div>
+
+{% endblock %}

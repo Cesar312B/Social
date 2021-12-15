@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
+        <title>{% block title %}Social{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/stylesheet.css') }}">
+         
+        {% endblock %}
+
+    </head>
+    <body class="body">
+       <div class="page-content p-4 ">
+        {% block body %}
+      
+
+        
+      
+      
+        
+        {% endblock %}
+         </div>
+
+        {% block javascripts %}
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/all.js') }}"></script>
+    
+        {% endblock %}
+
+         
+
+    </body>
+</html>

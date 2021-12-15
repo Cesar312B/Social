@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }}-Ver Posts{% endblock %}
+
+{% block body %}
+{{ parent() }}
+{% set Lik= posts.likes | split(',') %}
+<div class="container bg-white rounded my-3 p-4">
+        <div class="d-flex bd-highlight">
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <h3>{{posts.titulo}}</h3>
+                <div class="my-3" style="..."  onclick="MeGusta({{posts.id}})">
+                    <i class="fa fa-thumbs-up"></i><strong> 
+                    
+                    {% if app.user.id in Lik %}
+                    Te gusto esto 
+                     {% else %} 
+                     Te gusto?
+                    {%  endif %} 
+                    </strong>
+                </div>
+                <div style="color:#c3f584;">
+                    <i class="far fa-clock"></i> <strong>Fecha de publicación: {{posts.fechapublicacion | date("m/d/Y") }}</strong>
+                </div>
+            </div>
+            <div class="p-2 bd-highlight">
+                <div class="align-self-center">
+                    <img class="rounded" src={{ asset('uploads/fotos/'~posts.foto) }} width="300px">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="text-justify my-3">
+        {{posts.contenido|raw }}
+
+        </div>
+    </div>
+
+     <div class="container p-3">
+        {{ form(form) }}
+        <h3>Comentarios</h3>
+        {% for comentario in comentarios %}
+            <div class="rounded bg-white my-2 p-3 border">
+                <h5>{{ comentario.nombre }}</h5>
+                <div class="w-100">{{ comentario.comentario|raw}}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="navigation">
+            {{ knp_pagination_render(comentarios) }}
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+  {% block javascripts %}
+{{ parent() }}
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+
+
+         <script src="{{ asset('js/ajax-call.js') }}"></script>
+        {% endblock %}
