@@ -1,15 +1,16 @@
 # Social
  Symfony Social App
+ </br>
  Mysql Database,Bostrap 4, Fundation, html, css 
 FEACTURS:
-•	Login
-•	Changet Password
-•	Forgot Password Email 
-•	Validated User Email 
-•	Edit Profile 
-•	Crate, Edit, Delete Post
-•	Coments Posts
-•	User Adminstrator(Admin)
+- Login
+-	Changet Password
+-	Forgot Password Email 
+-	Validated User Email 
+-	Edit Profile 
+-	Crate, Edit, Delete Post
+-	Coments Posts
+-	User Adminstrator(Admin)
 
 ![image](https://user-images.githubusercontent.com/86753747/146273419-dea99dd6-b15d-4ea7-b608-5b89fdd4f7e6.png)
 ![image](https://user-images.githubusercontent.com/86753747/146273515-93bf1a46-bb37-4725-b7cd-68163ecfb99d.png)
